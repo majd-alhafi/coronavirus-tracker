@@ -27,5 +27,13 @@ jobs:
     - name: Run tests
       run: mvn test
 
+    - name: Lint with Flake8
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x' # Replace 'x' with the desired Python version
+      run: |
+        pip install flake8
+        flake8 --exclude=target/
+
     - name: Package JAR
       run: mvn package
